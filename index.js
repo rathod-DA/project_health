@@ -11,3 +11,14 @@ const check = async () => {
 };
 
 setInterval(check, 1000); 
+
+
+const awake = async () => {
+    try {
+        await axios.get(process.env.self_url);
+       
+    } catch (err) {
+        console.log("Error pinging awake:", err.message);
+    }
+}
+setInterval(awake, 5 * 60 * 1000);
